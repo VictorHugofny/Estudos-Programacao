@@ -9,3 +9,5 @@ return { comprarSorvete, comprarTv50, comprarTv30, manterSaudavel}
 
 console.log(compras(true,true))
 console.log(compras(true,false))
+console.log(compras(false,true))
+console.log(compras(false,false))
