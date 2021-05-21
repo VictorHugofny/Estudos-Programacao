@@ -1,0 +1,17 @@
+#textoPrincipal{
+    font-size: 20px;
+    font-weight: bold;
+    background-color:azure
+}
+h1 {
+    position:relative;
+    font-size: 40;
+    display:table-cell;
+    background-color: blueviolet;
+}
+.fundovermelho{ 
+    background-color:red;
+}
+.azul{
+    background-color:rgb(109, 255, 243);
+}
