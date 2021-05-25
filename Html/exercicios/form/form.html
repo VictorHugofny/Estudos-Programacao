@@ -1,10 +1,9 @@
 <h1>Formulario</h1>
 
-<form action= "http://localhost:3003/usuarios" method="POST">
+<form method="POST">
 Seu nome <input type="text" name="nome">
 Senha <input type="password" name="senha"> 
 Texto <textarea name ="bio" cols="30" rows ="10"></textarea>
-<button>Incluir</button>
 <div>
     <input type="radio" name="tipo" value="admin"> admin
     <input type="radio" name="tipo" value="regular"> Regular
@@ -27,8 +26,9 @@ Estado <select name="estado">
 <option value="PHP">PHP</option>
 <option value="C">C</option>
 <option value="C#">C#</option>
-
 </select>
+ 
+<button formaction="http://localhost:3003/usuarios">Enviar</button>
 </form>
 
 <style>
