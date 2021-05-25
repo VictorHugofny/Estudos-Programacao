@@ -1,6 +1,7 @@
 <h1>Formulario</h1>
 
 <form method="POST">
+<input type="hidden" name="id" value="3">
 Seu nome <input type="text" name="nome">
 Senha <input type="password" name="senha"> 
 Texto <textarea name ="bio" cols="30" rows ="10"></textarea>
@@ -29,6 +30,7 @@ Estado <select name="estado">
 </select>
  
 <button formaction="http://localhost:3003/usuarios">Enviar</button>
+<button formaction="http://localhost:3003/usuarios/3">Alterar</button>
 </form>
 
 <style>

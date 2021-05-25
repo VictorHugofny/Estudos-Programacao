@@ -1,0 +1,89 @@
+<div wm-slider>
+    <p>
+        <img src="https://www.planocritico.com/wp-content/uploads/2018/05/104-Full-Metal-Alchemist-Vol-1.jpg" 
+        alt ="foto de fullmetal" height = '342' title = "fullmetal alchemist">
+    </p>
+    
+    <p>
+        <img src="https://media0.giphy.com/media/g0OT8JBFRc8SY/200.gif"
+        alt ="intro cod3r" height="342">
+    </p>
+    
+    <p class="circular"> 
+        <img src="https://i.pinimg.com/originals/76/34/d6/7634d64927d274ac4e9c2290991dd75d.png"
+        alt="fullmetal" height="342">
+    </p>
+    
+    <p class="texto">
+        <img src ="/exercicios/imgs/fullmetal.jpg" height="350" alt ="avatar" align="left" >
+        seqwewqewsad qwewqesdwq eqwe wqsdwqeewsq sdqweqwesdsd qwdqwdqwdqwd
+    </p>
+    
+    <p class="cidade"></p>
+    
+    <!--Condicional para escolher uma das duas imagens-->
+    <p> <picture>
+        <source srcset ="https://ultimatodobacon.com/wp-content/uploads/2019/10/edeal.jpg"
+        media="(min-width: 600px)">
+        <img src ="https://www.jbchost.com.br/editorajbc/wp-content/uploads/2018/09/FMA-Especial-23-Capa_p.jpg">
+    </picture></p>
+</div>
+
+<style>
+    p{
+        position: absolute;
+        display: none;
+    }
+    .circular{
+        width: 340px;
+        background-color:rgb(255, 251, 0);
+    }
+    .texto img{
+        margin-right: 20px ;
+    }
+    .cidade{
+        width: 513;
+        height: 342px;
+        background-image:url(/exercicios/imgs/fullmetal.jpg);
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size:100%;
+    }
+</style>
+
+<script>
+    function mover(elem,inicio,fim,passo,callback){
+        const novoinicio = inicio - passo;
+
+        if(novoinicio >= fim){
+            elem.style.left = novoinicio + "px"; //atribuir a posição aos elementos
+            setTimeout(()=> mover(elem, novoinicio,fim,passo,callback),7); //intervalo de tempo
+        }
+        else{
+            callback();
+        }
+    }
+
+    function slider(){
+        const elementos = document.querySelectorAll('[wm-slider] >p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides,slide){
+        slide.style.display = "block"
+        const inicio = innerWidth; //pegando tamanho da tela 
+        const fim = -slide.clientWidth;
+
+        slide.style.left = '${inicio}px'
+
+        mover(slide,inicio,fim,5,()=>{
+            exibirSlide(slides,getProximo(slides,slide))
+        })}
+        function getProximo(lista,atual) {
+            const i = lista.indexOf(atual) + 1
+            return i < lista.length ? lista[1] : lista [0]
+        }
+        slider()
+    
+</script>
