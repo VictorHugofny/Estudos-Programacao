@@ -1,4 +1,4 @@
-<video id="meuVideo" width="400" controls autoplay controlsList="nodownload">
+<video id="meuVideo" width="400" autoplay controlsList="nodownload">
     <source src="http://files.cod3r.com.br/curso-web/video.mp4" type='video/mp4'>
     Seu browser não suporta a tag de video.
 </video>
@@ -28,3 +28,22 @@
         width: 30px;
     }
 </style>
+
+<script>
+    function configurarVideo(id){
+        const video = document.getElementById(id)
+        video.oncontextmenu = () => false
+
+        document.querySelector(`[wm-play = ${id}`).onclick = e => video.play();
+        document.querySelector(`[wm-pause = ${id}`).onclick = e => video.pause();
+
+        setInterval(() =>{
+            const percentual = (video.currentTime / video.duration * 100)
+            const valorDiv = document.querySelector(`[wm-progresso = ${id}] > div`)
+            valorDiv.style.width = `${percentual}%`;
+            valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+        },500)
+    }
+
+    configurarVideo("meuVideo")
+</script>
