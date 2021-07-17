@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        .selector{
+            color: rgb(255, 0, 0);
+            font-size: 30px;
+            text-align: center;
+            border: dashed 5px navy;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* funçoes */
+            width: calc(100% - 100px);
+            background-color: blue;
+        }
+        /* pseudo classe */
+        .selector:hover{
+            background-color: tomato;
+        }
+        /* pseudo elemento */
+        .selector::first-letter{
+            font-size: 60px;
+            font-weight: bold;
+        }
+        /* padrao nomenclatura */
+        /* dash-case ou camelcase */
+    </style>
+</head>
+
+<body>
+    <div class="selector">Conteúdo</div>
+</body>
+
+</html>
