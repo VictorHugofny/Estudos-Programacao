@@ -6,6 +6,19 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /* coisas importantes
+        1. Regras com !important evitar o seu uso
+        2. selectores mais especificos
+        3. Ultima regra processada (empate)  */
+
+        .observacao{
+            background-color: chocolate;
+            padding: 200px !important;
+        }
+        p.observacao{
+            padding: 2px;
+        }
+
     </style>
 </head>
 
