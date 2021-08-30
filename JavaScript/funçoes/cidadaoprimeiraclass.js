@@ -27,3 +27,19 @@ console.log(obj.falar())
 function run(fun){
     fun()
 }
+run(function(){
+    console.log("executando")
+})
+
+// Uma função pode retornar/conter um função 
+function soma(a,b){
+    return function(c){
+        console.log(a + b + c)
+    }
+    }
+soma(2,3)(4)
+
+const cincomais = soma(2,3)
+cincomais(4)
+
+//nova forma de criar função
