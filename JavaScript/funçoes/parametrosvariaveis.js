@@ -11,3 +11,4 @@ console.log(soma(1))
 console.log(soma(1, 2, 3, 4))
 console.log(soma(1,3,4, "teste"))
 console.log(soma("a", "b", "c"))
+

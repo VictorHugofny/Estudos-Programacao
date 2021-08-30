@@ -11,5 +11,5 @@ const falar = pessoa.falar // armazenar dentro da variavel, causa conflito pelo 
 falar() //conflito entre paradigmas: funcinal e objeto
 
 const falarDePessoa = pessoa.falar.bind(pessoa); //referencia o objeto junto do atributo
-// garantir que ela aponte para o lugar certo e retorne o valor
+// garantir que ela aponte para o lugar certo e retorne o valor0
 falarDePessoa()
