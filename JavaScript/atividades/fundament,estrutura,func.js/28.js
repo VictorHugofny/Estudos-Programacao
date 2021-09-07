@@ -2,13 +2,13 @@ numeros = [1,2,3,4,5,6,7,8,9,10]
 pares = []
 impar = []
 
-for (i in numeros){
-    if(numeros[i] % 2 == 0){
-        pares[i] = numeros[i]
+numeros.forEach(e => {
+    if(e % 2 == 0){
+        pares.push(e)
     }else{
-        impar[i] = numeros[i]
+        impar.push(e) 
     }
-}
+});
 console.log("Pares -")
 for (i in pares){
     console.log(pares[i])

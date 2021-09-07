@@ -1,4 +1,8 @@
 divisao = (div,dividendo) =>{
-    return console.log("Valor da divisão:",div/dividendo, "\nResto da divisão:", div%dividendo) 
+    var valor = div/dividendo
+    var resto = div%dividendo
+
+    return valor
 }
-divisao(55.4,5)
+console.log(divisao(5,3))
+

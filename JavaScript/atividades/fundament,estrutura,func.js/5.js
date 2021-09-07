@@ -1,5 +1,6 @@
 convertervalor = (valor) => {
     total = valor.toFixed(2)
-    return console.log("R$",total)
+    return total
 }
 convertervalor(0.3333333)
+console.log("R$",total)
