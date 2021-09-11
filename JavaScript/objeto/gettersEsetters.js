@@ -8,7 +8,7 @@ const sequencia  = {
             this._valor = valor
         }
     }
-
+ 
 }
 
 console.log(sequencia.valor, sequencia.valor)
