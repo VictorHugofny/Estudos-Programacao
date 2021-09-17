@@ -7,13 +7,16 @@ const produtos = [
 ]
 
 console.log(produtos.filter(function(p){ // p = elementos do array
-    return p.preco > 25 //so retorna os que são verdadeiros
+    return p.preco > 2525 //retorna o vetor completo , se o return for true
     //resultado do return precisa ser verdadeiro ou falso
 }))
 console.log(produtos.filter(function(p){ // p = elementos do array
     return p.fragil == true //resultado do return precisa ser verdadeiro ou falso
 }))
 
+//function caro (produto){
+//    return produto.preco >= 500 
+//}
 const caro = produto => produto.preco >= 500
 const fragil = produto => produto.fragil
 
