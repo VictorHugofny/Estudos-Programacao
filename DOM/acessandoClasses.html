@@ -12,7 +12,32 @@
         Classes
     </div>
     <script>
-        // ...
+        //manipulando uma classe de uma div
+        const classes = document.querySelector('div').classList
+        classes.add('destaque')
+        classes.remove('destaque')
+        classes.toggle('destaque')
+        
+        console.log(classes.contains('destaque'))
+        console.log(classes.length)
+        classes.toggle('destaque')
+        console.log(classes.length)
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+        for (let c of classes ){ //acessando cada uma das classes
+            console.log(c)
+        }
+        classes.forEach(c => console.log(c))
+        //para usar map, reduce... necessario criar um array antes
+
+        classesArray = Array.from(classes) //criando um array
+        console.log(classesArray)
+        classesArray1 = [...classes]
+        console.log(classesArray1)
+        
     </script>
 </body>
 
