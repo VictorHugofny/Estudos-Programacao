@@ -15,7 +15,27 @@
         <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
     </div>
     <script>
-        // ...
+        const img = document.querySelector('img')
+        //acessando atributos 
+        console.log('Pegando atributo',img.getAttribute('src'))
+        console.log('acessando atributo src',img.src)
+        console.log("acessando atributo",img['src'])
+        console.log('alt',img.alt)
+
+        console.log('Elemento "img"............')
+        console.log("NodeType", img.nodeType)
+        console.log('NodeName',img.nodeName)
+
+        const src = img.getAttributeNode('src')
+        console.log('Atributo "SRC"')
+        console.log('NodeType',src.nodeType)
+        console.log("NodeValue",src.nodeValue)
+
+        const link = document.querySelector('a')
+        console.log('Elemento a')
+        console.log('Href',link.href)
+        console.log('FirtsCHild',link.firstChild.nodeType)
+        link.firstChild.nodeValue ='Novo texto'
     </script>
 </body>
 
