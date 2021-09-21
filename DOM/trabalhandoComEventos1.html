@@ -9,9 +9,17 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <a href="https://google.com.br" onclick = "navegarEm5s(event)">Google</a>
     </div>
     <script>
-        // ...
+         function navegarEm5s(e) {
+             e.preventDefault()
+             console.log('saindo em 5s')
+
+             setTimeout(()=>{
+                 const link = e.target
+                 window.location.href = link.href //substituindo endereço
+             },5000)//5 segundos
+         }
     </script>
 </body>
