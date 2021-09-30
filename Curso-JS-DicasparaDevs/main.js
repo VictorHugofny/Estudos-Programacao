@@ -1,36 +1,33 @@
-//const addusertext = document.querySelector('#add-user') //getElementById
-//const myform = document.querySelector('.container #my-form')
+const nameInput = document.querySelector('#name')
+const emailInput = document.querySelector('#email')
+const sutmitbottom = document.querySelector('#submit-button')
 
-//console.log(addusertext)
-//console.log(myform)
+const errorMessage = document.querySelector('.msg')
 
-//addusertext.textContent = "testando" //formas de trocar o conteudo
-//addusertext.innerHTML = "Adicionar Usuario" // modificar o conteudo
+const items = document.querySelector('.items')
 
+sutmitbottom.addEventListener('click',(e) => {
+    e.preventDefault()
 
-//selecionar multiplos elementos
-//const allitens = document.querySelector(".items")
-//console.log(allitens)
+    const nameValue = nameInput.value
+    const emailValue = emailInput.value
+    if (nameValue === "" || emailValue === ""){
+        errorMessage.textContent = "ERRO !!!"
+        errorMessage.classList = 'error' //adicionando uma classe
+        
+        setTimeout(() => { // dps de 3 segundos
+            errorMessage.remove();
+        }, 3000);
+        
+        return
+    }
 
-//remover elementos
-//allitens.remove();
-//allitens.firstElementChild.remove()
-//allitens.lastElementChild.remove()
+    const li = document.createElement('li') //criando uma tag "li"
+    li.classList = "item"
+    li.innerHTML = `Nome: ${nameValue} <br/> email: ${emailValue}`
 
-//allitens.children[0].textContent = "Item um"
-//allitens.lastElementChild.innerHTML = "<h1> Testando </h1>"
+    items.appendChild(li) //adicionar como filho 
 
-//const button1 = document.querySelector('.btn')
-//button1.style.background = 'red';
-//button1.style.color = "black";
-
-const submitButton = document.querySelector("#submit-button")
-const nameInput = document.querySelector("#name")
-const emailInput = document.querySelector("#email")
-
-submitButton.addEventListener('click',function(e){
-    e.preventDefault(); //impedir comportamento padrao
-    console.log(e)
-    console.log("clicked")
-    console.log(nameInput.value)
+    nameInput.value = '';
+    emailValue.value = '';
 })
