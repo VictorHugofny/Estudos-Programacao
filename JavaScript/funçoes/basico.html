@@ -28,9 +28,10 @@
                 }
             },
             computed: {
-                precoComDesconto ()  {
+                precoComDesconto = (a) => {
                     return this.preco * (1 - this.desconto)
                 }
+
             }
         })
     </script>
