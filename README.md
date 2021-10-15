@@ -6,3 +6,6 @@ Meus estudos voltados a programação web
 
 Curso Web Moderno Completo com JavaScript 2021 + Projetos
 https://www.udemy.com/course/curso-web/
+
+Formação Node.js
+https://www.udemy.com/course/formacao-nodejs/
