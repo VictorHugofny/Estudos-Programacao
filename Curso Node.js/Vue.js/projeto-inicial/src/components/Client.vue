@@ -1,9 +1,10 @@
 <template>
 <div id = "cliente">
-  <h2 id = "nome">{{nome}}</h2>
-  <h2>Descrição do cliente: {{descricao}}</h2>
-  <h2>Cliente aqui! </h2>
-  {{nome}}
+  <h4> Nome: {{nome}} </h4>
+  <hr>
+  <p>Email: {{email}} </p>
+  <hr>
+  <p>Idade: {{idade}} </p>
 </div>
 </template>
 
@@ -11,12 +12,13 @@
 export default {
     data(){
         return {
-            nome : "Victor Hugo",
-            numero : "",
-            email : "",
-            idade : 0,
-            descricao : 'bla bla bla bla bla'
+          
         }
+    },
+    props:{
+        nome: String,
+        email: String,
+        idade : Number
     }
 }
 </script>
@@ -24,9 +26,12 @@ export default {
 <style>
 #cliente{
     color: rgb(0, 0, 0);
-    background-color: rgb(192, 192, 192);
+    background-color: rgb(221, 219, 219);
     max-width: 600px;
-    height: 230px;
+    border: aqua solid 3px;
+    height: 200px;
+    padding-left: 2%;
+    margin-top: 2%;
 }
 
 #nome{
