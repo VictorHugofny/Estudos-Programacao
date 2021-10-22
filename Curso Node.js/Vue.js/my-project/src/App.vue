@@ -6,7 +6,9 @@
     <input type="text" placeholder="nome" v-model = "nomeField">
     <input type="email" placeholder="email" v-model = "emailField">
     <input type="number" placeholder="idade" v-model = "idadeField">
-    <button @click="cadastrarUsuario"> CADASTRAR </button>
+    <button class="button is-black" @click="cadastrarUsuario"> CADASTRAR </button>
+
+
     
     <hr>
    <h1> Guia Clientes </h1>
