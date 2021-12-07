@@ -1,12 +1,12 @@
 # Estudos de Programação
 
-<h6> Meus estudos de programação Web com base em cursos que faço pela Udemy, youtube e outras plataformas </h6>
+<h4> Meus estudos de programação Web com base em cursos que faço pela Udemy, youtube e outras plataformas </h4>
 
 
 
 # Conteudos: 
 
-<h6>Javascript,Vue,Node,HTML,CSS,Bootstrap,Express...</h6>
+<h4>Javascript,Vue,Node,HTML,CSS,Bootstrap,Express...</h4>
 
 # Cursos: 
 <a href="https://www.udemy.com/course/curso-web/">Curso Web Moderno Completo com JavaScript 2021 + Projetos</a>
