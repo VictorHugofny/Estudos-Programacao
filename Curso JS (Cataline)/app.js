@@ -1,6 +1,16 @@
 let voceComprouProdutos = new Promise(function (resolve,reject){ //resolução e rejeição
-    let produtos = ['camisa','sapato','calça']
-    resolve('deu ruim')
+    setTimeout( function(){
+        let produtos = ['camisa','sapato','calça']
+        resolve(produtos)
+    },3000) 
 })
 
-console.log(voceComprouProdutos)
+//exemplo de uso
+// if () { resolve }
+//else () { reject }
+
+voceComprouProdutos.then(function(products){ //then espera a promessa ser resolvida
+    console.log(products)
+}).catch(function(error){ //caso entre no reject
+    console.log(error)
+})
