@@ -9,3 +9,12 @@ const sum = (...params) =>{
 }
 
 console.log(sum(5,5,10,10))
+
+//spred
+
+const number1 = [1,2,3,4,5]
+const number2 = [6,7,8]
+
+const numeros = [...number1, ...number2]
+
+console.log(numeros)
