@@ -1,0 +1,29 @@
+{
+  "name": "webpack-tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial about webpack",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fellyph/webpack-tutorial.git"
+  },
+  "keywords": [
+    "tutorial",
+    "webpack"
+  ],
+  "author": "fellyph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fellyph/webpack-tutorial/issues"
+  },
+  "homepage": "https://github.com/fellyph/webpack-tutorial#readme",
+  "devDependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  }
+}
