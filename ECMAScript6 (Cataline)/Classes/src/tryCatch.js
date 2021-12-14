@@ -8,8 +8,7 @@ const myPromisse = () => new Promise((resolve,reject) =>{
 //myPromisse().then((response)=>{ // se for resolvido
 //    console.log(response)})
 
-// const exec = async () =>{ }
-
+// const exec = async () =>{}
 async function exec(){ //esperar
     try{
         await myPromisse()
