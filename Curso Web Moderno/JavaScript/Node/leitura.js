@@ -8,7 +8,15 @@ const conteudo = fs.readFileSync(caminho,'utf-8') //ler o arquivo
 
 //assincrona...
 fs.readFile(caminho,'utf-8',(err, conteudo) =>{
-   const config = conteudo 
+   const config = JSON.parse(conteudo)
+   console.log(`${config.db.host}:${config.db.port}`) 
 })
 
-console.log(conteudo)
+//ja puxa como objeto direto
+const config = require ('./arquivo.json')
+console.log(config.db)
+
+fs.readdir(__dirname,(err,arquivos)=>{
+   console.log('conteudo pasta')
+   console.log(arquivos)
+})
