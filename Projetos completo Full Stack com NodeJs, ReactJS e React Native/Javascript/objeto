@@ -1,0 +1,17 @@
+let pessoa = [
+    {
+    nome: "Hugo",
+    idade: 22,
+    cargo: "Programador"
+    },
+    {
+    nome: "Victor",
+    idade: 22,
+    cargo: "Dev"
+    },
+
+]
+
+console.log(pessoa)
+
+console.log(pessoa.filter(obj => obj.nome == 'Hugo'))

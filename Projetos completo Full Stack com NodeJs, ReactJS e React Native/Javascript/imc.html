@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return calcular(event)">
+        <label for="">digite seu peso</label>
+        <input type="text" name="peso" id="peso" placeholder="exemplo 65"/>
+
+        <label for="">digite sua altura</label>
+        <input type="text" name="altura" id="altura" placeholder="exemplo 1.83"/>
+
+        <input type="submit" value="Calcular IMC">
+    </form>
+
+    <div id = 'resultado'></div>
+</body>
+</html>
+
+<script>
+
+let peso;
+let altura;
+let imc;
+let resultado;
+
+
+    function calcular(event){
+        event.preventDefault();
+
+        peso = document.getElementById('peso').value;
+        altura = document.getElementById('altura').value;
+        
+        console.log(peso,altura)
+        imc = (peso / (altura * altura)).toFixed(2) + ' IMC'
+
+        resultado = document.getElementById("resultado")
+        resultado.innerHTML = imc
+
+        if(imc < 18){
+            resultado.innerHTML = "abaixo do peso " + imc
+        }else if(imc < 24){
+            resultado.innerHTML = "peso ideal " + imc
+        }else if(imc > 24){
+            resultado.innerHTML = "acima do peso " + imc
+        }
+    }
+</script>
