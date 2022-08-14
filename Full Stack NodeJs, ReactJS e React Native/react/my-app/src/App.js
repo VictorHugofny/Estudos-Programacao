@@ -1,62 +1,48 @@
-import Nome from './componentes/nome';
-import { useState, useEffect } from 'react'
 
-//para usar javascript é dentro do {}
+//https://sujeitoprogramador.com/rn-api/?api=posts
+
+import React, {useEffect, useState} from 'react';
+import './style.css'
 
 function App(){
-  const [input, setInput] = useState('');
-  const [tarefas, settarefas] = useState([]);
 
-  //roda toda vez que carrega o componente
-  useEffect(()=>{
-    const tarefasStorage = localStorage.getItem('@tarefa');
-
-    if(tarefasStorage){
-      settarefas(JSON.parse(tarefasStorage))
-    }
-  },[]);
-
-  //update
-  //roda toda vez que carrega o componente especifico ou é modificado
-  useEffect(()=>{
-    //somente adicioanr um valor, se o array não estiver vazio
-    if(tarefas.length > 0){
-    //usar local estorage para salvar no navegador
-    localStorage.setItem('@tarefa', JSON.stringify(tarefas))
+  const [nutri, setNutri] = useState([]);
+  
+  //receber dados da API
+  function loadApi(){
+    let url = 'https://sujeitoprogramador.com/rn-api/?api=posts'
+    fetch(url)
+    //recebendo os dados da api e convertendo em json
+    .then((r)=> r.json())
+    .then((json)=>{
+    //jogando os dados em um array
+      setNutri(json);
+    })
   }
-  }, [tarefas])
-  //toda vez que tarefas for alterado roda a função
 
-
-  function registrar(e){
-    //evitar que atualize
-    e.preventDefault();
-
-    // alert('Usuario registrado com sucesso')
-    //pega todas as tarefas + o ultimo input escrito
-    settarefas([...tarefas,input])
-    //limpar o input
-    setInput('')
-  }
+  //consumindo API
+  useEffect(()=>{
+    loadApi()
+  }, []);
 
   return(
-   <div>
-      <form onSubmit = {registrar}>
-        <label>Nome da tarefa:</label> <br/>
-        <input placeholder='digite uma tareff' 
-        value={input} onChange = {(e)=> setInput(e.target.value)}/> <br/>
-        <br/>
-        <button type="submit">Registrar</button>
-      </form>
+   <div className='container'>
+    <header>
+      <strong>React nutri</strong>
+    </header>
 
-      <br/><br/>
-   
-   
-    <ul>
-      {tarefas.map( obj => (
-        <li key={obj}> {obj} </li> 
-        ))}
-    </ul>
+    {nutri.map((obj)=>{
+      return(
+        <article key={obj.id} className="post">
+          <h1>{obj.categoria}</h1>
+          <strong className='titulo'>{obj.titulo}</strong>
+          <img src = {obj.capa}></img>
+          <p className='subtitulo'>{obj.subtitulo}</p>
+          <a className='botao'> acessar </a>
+          
+        </article>
+      )
+    })}
    </div>
 
   );
