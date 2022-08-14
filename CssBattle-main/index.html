@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando html</title>
+    <style>
+        #conteudo{
+            
+            width: 250%;
+        }
+    </style>
+        GALERIA DE ESTUDO WEB - LOGOS CRIADAS USANDO CSS E HTML
+       <nav>
+        <a href wm-nav= "violaocssbattle.html"> 01 - Violão | </a>
+        <a href wm-nav= "Margin.html"> 02 - Logo Montanhas |  </a>
+        <a href wm-nav= "Overflow.html"> 03 - Overflow | </a> 
+        <a href wm-nav= "Pillot Battle.html"> 04 - Pilot Battle |  </a> 
+    </nav>
+</head>
+<body>
+
+    <br>
+    <br><br><br><br>
+
+    <section id= 'conteudo'></section>
+
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link =>{
+            link.onclick = function(e){
+                e.preventDefault()
+
+                const conteudo = document.getElementById('conteudo')
+                fetch(link.getAttribute('wm-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        });
+    </script>
+    <style>
+
+    *{
+    width: 250%;
+    }
+    </style>
+</body>
+</html>
