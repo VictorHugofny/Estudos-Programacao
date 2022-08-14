@@ -18,3 +18,5 @@
 <a href="https://www.youtube.com/watch?v=g08WcKOHeK0&list=PLm-VCNNTu3LnlPhqxx03kvjQd3qF6EBdz">Curso de JavaScript (DicasparaDevs)</a>
 
 <a href="https://station.cataline.io/basecamp/javascript">Basecamp - Javascript (Cataline)</a>
+
+<a href="https://www.udemy.com/course/dev-fullstack/">Projeto Completo NodeJS, React, React Native, TypeScript </a>
