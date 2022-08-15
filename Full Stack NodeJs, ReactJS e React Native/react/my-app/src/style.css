@@ -1,52 +1,9 @@
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-header{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-    height: 60px;
-    width: 100%;
-    background-color: rgb(43, 76, 142);
-    color: white;
-}
-
-.post{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 700px;
-    background-color: rgba(0, 40, 120, 0.188);
-    border-radius: 8px;
-    border-width: 1px;
-    margin: 8px;
-    padding: 10px;
-}
-
-img{
-    width: 40vw;
-}
-
-.botao{
-    background: rgb(0, 123, 255);
-    padding: 2px;
-    padding-left: 20px;
-    margin-left: 10px;
-    color: white;
-    width: 10%;
-    border-radius: 25px;
+body{
+    font-family: sans-serif;
 }
