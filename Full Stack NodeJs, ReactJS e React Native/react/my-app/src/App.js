@@ -1,8 +1,8 @@
+import RoutesAPP from './routes'
+
 function App(){
   return(
-   <div className='container'>
-  <h1>teste</h1>
-   </div>
+   <RoutesAPP/>
   );
 }
 
