@@ -1,8 +1,8 @@
-import RoutesAPP from './routes'
+import RoutesAPP from './routes';
 
 function App(){
   return(
-   <RoutesAPP/>
+      <RoutesAPP/>
   );
 }
 
