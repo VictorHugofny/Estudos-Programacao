@@ -7,8 +7,12 @@ function Home(){
         <Link to="/sobre">Sobre</Link><br/>
         <Link to="/contato">Contato</Link>
         <h1>pagina home</h1>
-     </div>
-  
+     
+         <hr/>
+         
+         <Link to="/produto/123">Acessa produto 123</Link>
+
+      </div>
     );
   }
   

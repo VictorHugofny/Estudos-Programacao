@@ -5,7 +5,8 @@ function Header(){
     
     return(
         <header>
-            <h2>React estudos</h2>
+            <Link to='/'><h2>React estudos</h2></Link>
+            
             <div class ='navbar'>
                 <Link to='/'>Home</Link>
                 <Link to="/sobre">Outras</Link>
