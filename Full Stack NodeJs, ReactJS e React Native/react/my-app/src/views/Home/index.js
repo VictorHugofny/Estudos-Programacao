@@ -5,7 +5,7 @@ function Home(){
     
      <div className='container'>
         <Link to="/sobre">Sobre</Link><br/>
-        <Link to="/contato">Conatto</Link>
+        <Link to="/contato">Contato</Link>
         <h1>pagina home</h1>
      </div>
   
