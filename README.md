@@ -4,7 +4,7 @@
 
 # Conteudos: 
 
-<h4>Javascript,Vue,Node,HTML,CSS,Bootstrap,Express...</h4>
+<h4>Javascript,Vue,Node, React,HTML,CSS,Bootstrap,Express...</h4>
 
 <h1 align="center">
     <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/ibm.gif" />
