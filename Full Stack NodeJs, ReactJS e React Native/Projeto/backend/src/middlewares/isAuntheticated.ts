@@ -26,7 +26,10 @@ export function isAuntheticated(req: Request, res: Response, next: NextFunction)
             process.env.JWT_SECRET
         ) as Payload;
         
-        return next(sub);
+        //recuperar o id do token e colocar em uma variavel no req
+        req.user_id = sub;
+        
+        return next();
 
     }catch(err){
         return res.status(401).end();
