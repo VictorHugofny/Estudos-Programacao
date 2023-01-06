@@ -15,8 +15,7 @@ class DetaildUserService{
                 email: true
             }
         })
-
-
+        
         return user;
     }
 }
