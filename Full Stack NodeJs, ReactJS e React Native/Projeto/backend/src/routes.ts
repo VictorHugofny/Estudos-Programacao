@@ -11,6 +11,7 @@ import {CreateOrderController} from './controllers/order/CreateOrderController';
 import {RemoverOrderController} from './controllers/order/RemoverOrderController';
 import {AddItemController} from './controllers/order/AddItemController'
 import {RemoveItemController} from './controllers/order/RemoveItemController';
+import {SendOrderController} from './controllers/order/SendOrderController';
 
 import {isAuntheticated} from './middlewares/isAuntheticated';
 
@@ -39,4 +40,8 @@ router.post('/order', isAuntheticated, new CreateOrderController().handle)
 router.delete('/order', isAuntheticated, new RemoverOrderController().handle)
 router.post('/order/add', isAuntheticated, new AddItemController().handle)
 router.delete('/order/remove', isAuntheticated, new RemoveItemController().handle)
+
+//enviar pedido tirando de rascunho
+router.put('/order/send', isAuntheticated, new SendOrderController().handle)
+
 export {router};
