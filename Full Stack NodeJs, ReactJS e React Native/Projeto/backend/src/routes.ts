@@ -8,6 +8,9 @@ import {ListCategoryController} from './controllers/category/ListCategoryControl
 import {CreateProductControler} from './controllers/product/CreateProductControler';
 import {ListByCategoryController} from './controllers/product/ListByCategoryController';
 import {CreateOrderController} from './controllers/order/CreateOrderController';
+import {RemoverOrderController} from './controllers/order/RemoverOrderController';
+import {AddItemController} from './controllers/order/AddItemController'
+import {RemoveItemController} from './controllers/order/RemoveItemController';
 
 import {isAuntheticated} from './middlewares/isAuntheticated';
 
@@ -20,9 +23,7 @@ const upload = multer(uploadConfig.upload("./tmp"));
 
 //rotas user
 router.post('/users', new CreateUserController().handle)
-
 router.post('/session', new AuthUserController().handle)
-
 router.get('/my', isAuntheticated, new DetailUserController().handle)
 
 //rotas category
@@ -35,5 +36,7 @@ router.get('/category/product', isAuntheticated, new ListByCategoryController().
 
 //rotas order
 router.post('/order', isAuntheticated, new CreateOrderController().handle)
-
+router.delete('/order', isAuntheticated, new RemoverOrderController().handle)
+router.post('/order/add', isAuntheticated, new AddItemController().handle)
+router.delete('/order/remove', isAuntheticated, new RemoveItemController().handle)
 export {router};
