@@ -15,4 +15,4 @@ class FinishOrderController{
     }
 }
 
-export{FinishOrderController}
+export{FinishOrderController  }

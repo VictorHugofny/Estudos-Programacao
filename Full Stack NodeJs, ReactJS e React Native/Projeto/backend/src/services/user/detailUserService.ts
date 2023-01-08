@@ -2,7 +2,7 @@ import prismaClient from "../../prisma";
 
 class DetaildUserService{
     async execute(user_id: string){
-
+        
         //fazer busca pelo usuario no banco, de acordo com o id
         const user = await prismaClient.user.findFirst({
             where:{
