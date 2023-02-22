@@ -18,8 +18,10 @@ export default function Home() {
         <form>
           <Input placeholder='Email' type="text"></Input>
           <Input placeholder='Senha' type="password"></Input>
-          <Button type="submit" loading={true}> Acessar </Button>
+          <Button type="submit" loading={false}> Acessar </Button>
         </form>
+
+        <a className={styles.text}>Não possui uma conta? cadastre-se</a>
       </div>
     </div>
     </>
