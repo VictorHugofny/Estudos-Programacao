@@ -7,6 +7,12 @@
     color: var(--white);
     transition: 0.2s;
 
+    &[disabled]{
+        cursor: not-allowed;
+        svg{
+            animation: animate 2s infinite;
+        }
+    }
     &:hover{
         filter: brightness(1.50)
     }
