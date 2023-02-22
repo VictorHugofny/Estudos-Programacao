@@ -3,6 +3,8 @@ import Image from 'next/image'
 import logoImg from '../../public/logo.svg';
 import styles from '../styles/home.module.scss'
 
+import {Input} from '../components/ui/Input';
+import {Button} from '../components/ui/Button';
 export default function Home() {
   return (
     <>
@@ -14,7 +16,9 @@ export default function Home() {
 
       <div className={styles.login}>
         <form>
-          <input type={"text"}></input>
+          <Input placeholder='Email' type="text"></Input>
+          <Input placeholder='Senha' type="password"></Input>
+          <Button type="submit" loading={true}> Acessar </Button>
         </form>
       </div>
     </div>
