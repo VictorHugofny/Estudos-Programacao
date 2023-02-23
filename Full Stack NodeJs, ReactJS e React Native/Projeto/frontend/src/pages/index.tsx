@@ -5,6 +5,9 @@ import styles from '../styles/home.module.scss'
 
 import {Input} from '../components/ui/Input';
 import {Button} from '../components/ui/Button';
+
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <>
@@ -20,8 +23,9 @@ export default function Home() {
           <Input placeholder='Senha' type="password"></Input>
           <Button type="submit" loading={false}> Acessar </Button>
         </form>
-
-        <a className={styles.text}>Não possui uma conta? cadastre-se</a>
+      <Link className={styles.text} href='/signup'>
+        Não possui uma conta? cadastre-se
+      </Link>
       </div>
     </div>
     </>
