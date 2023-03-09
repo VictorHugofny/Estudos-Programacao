@@ -10,7 +10,7 @@ typedef struct {
 typedef struct {
   Elemento *topo;
 } Controle;
-
+ 
 // push
 void empilhar(Controle *p, int val) {
   Elemento *no = (Elemento *)malloc(sizeof(Elemento));
