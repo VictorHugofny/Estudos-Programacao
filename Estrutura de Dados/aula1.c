@@ -16,6 +16,7 @@ void empilhar(Controle *p, int val) {
   Elemento *no = (Elemento *)malloc(sizeof(Elemento));
   no->valor = val;
   no->proximo = p->topo;
+  p->topo = no;
 }
 
 int main() {
