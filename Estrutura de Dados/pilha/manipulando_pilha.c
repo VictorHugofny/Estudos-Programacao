@@ -69,7 +69,7 @@ void inverterPilha(Controle *p) {
     free(e);
   }
 
-  // imprimir os elementos da pilha auxiliar
+  //imprimir os elementos da pilha auxiliar
   printf("\nElementos da pilha na ordem inversa:\n");
   imprimir(aux.topo);
 }
