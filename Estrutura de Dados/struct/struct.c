@@ -12,10 +12,10 @@ struct Pessoa{
 int main(){
     struct Pessoa maria, joana, victor, turma[10];
     
-    turma[1].idade = 23;
+    turma[0].idade = 23;
     turma[0].sexo = 'f';
     turma[0].peso = 67;
     //maria.nome = 'Maria teste';
 
-    printf("%d", maria.idade);
+    printf("%d", turma[0].idade);
 }

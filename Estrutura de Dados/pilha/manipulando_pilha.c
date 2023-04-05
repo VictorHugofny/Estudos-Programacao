@@ -36,6 +36,7 @@ Elemento *desempilhar(Controle *p, Elemento *e) {
 }
 
 void imprimir(Elemento *e) {
+
   if (e) {
     printf("%d \n", e->valor);
     // função recursiva
@@ -43,6 +44,16 @@ void imprimir(Elemento *e) {
   } else {
     printf("\n Pilha vazia \n");
   }
+}
+
+void imprimirSegundaForma(Elemento *e) {
+
+  while (e != NULL) {
+    printf("%d \n", e->valor);
+    e = e->proximo;
+  }
+
+  printf("\n Pilha vazia \n");
 }
 
 void inverterPilha(Controle *p) {
@@ -64,11 +75,16 @@ void inverterPilha(Controle *p) {
 }
 
 // verificar se a pilha esta vazia
-void pilhaVazia(Elemento *e) {
+int pilhaVazia(Elemento *e) {
   if (!e) {
-    printf("Pilha esta vazia \n");
+    printf("Erro: Pilha está vazia\n");
+    return 1;
+  } else if (!e->valor) {
+    printf("Aviso: Pilha não está vazia, mas o elemento no topo é NULL\n");
+    return 0;
   } else {
     printf("O valor do topo é %d\n", e->valor);
+    return 0;
   }
 }
 
@@ -84,16 +100,13 @@ void verificarValor(Elemento *e, int valor) {
 
 int main() {
   Controle p;
-  Controle pCopia;
-  int teste = 0;
   p.topo = NULL;
-  pCopia.topo = NULL;
 
   int escolha = 0;
   int valor = 0;
   int valorEscolhido = 0;
 
-  while (escolha != 6) {
+  while (escolha != 8) {
     printf("\n\n -----------------------");
 
     printf("\n 1 - Empilhar");
@@ -101,6 +114,8 @@ int main() {
     printf("\n 3 - Imprimir");
     printf("\n 4 - verificar valor");
     printf("\n 5 - imprimir pilha inversa ");
+    printf("\n 6 - imprimir com while");
+    printf("\n 7 - verificar se pilha vazia");
     printf("\n\n Escolha uma opcao: ");
     scanf("%d", &escolha);
 
@@ -111,6 +126,8 @@ int main() {
       scanf("%d", &valor);
       empilhar(&p, valor);
     } else if (escolha == 2) {
+      //&p é a estrutura da pilha que contem dados sobre o topo
+      // p.topo é o ultimo elemento adicionado = Elemento e
       printf("valor desempilhado foi %d \n", desempilhar(&p, p.topo)->valor);
     } else if (escolha == 3) {
       imprimir(p.topo);
@@ -120,6 +137,10 @@ int main() {
       verificarValor(p.topo, valorEscolhido);
     } else if (escolha == 5) {
       inverterPilha(&p);
+    } else if (escolha == 6) {
+      imprimirSegundaForma(p.topo);
+    } else if (escolha == 7) {
+      pilhaVazia(p.topo);
     }
   }
 }
