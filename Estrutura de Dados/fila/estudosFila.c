@@ -12,19 +12,24 @@ typedef struct Fila{
     Elemento *fim;
 }Fila;
 
-void inserir(Fila *fila, int val) {
-  Elemento *no = (Elemento *)malloc(sizeof(Elemento));
-  
-  no->valor = val;
-  no->proximo = NULL;
+void inserir(Fila* fila, int val) {
+    Elemento* no = (Elemento*)malloc(sizeof(Elemento));
 
-  if(!fila->inicio){
-    fila->inicio = no;
-  }else{
-    fila->fim->proximo = no;
-  }
+    if (!no) {
+        printf("Erro ao alocar memória\n");
+        return;
+    }
 
-  fila->fim = no;
+    no->valor = val;
+    no->proximo = NULL;
+
+    if (!fila->inicio) {
+        fila->inicio = no;
+    } else {
+        fila->fim->proximo = no;
+    }
+
+    fila->fim = no;
 }
 
 void imprimir(Fila *fila) {
@@ -85,11 +90,22 @@ void copiarFila(Fila *fila1, Fila *fila2){
 }
 
 
-// void criarFila(Fila *fila){
-//     fila->fim = NULL;
-//     fila->inicio = NULL;
-//     printf("Pilha criada \n");
-// }
+//Implementar uma função para verificar se um determinado valor está presente na fila.
+int verificarValor(Fila *fila, valor){
+    int valorAtual = 0;
+
+    while(!filaVazia(fila->inicio)){
+        valorAtual = removerElemento(filaVazia);
+        
+        //encontrou o valor repetido;
+        if(valorAtual == valor){
+            return 1;
+        }
+    }
+
+    //não encontrou valor
+    return 0;
+}
 
 void main(){
     // Fila fila;
@@ -106,6 +122,7 @@ void main(){
     printf("\n 2 - Remover elemento");
     printf("\n 3 - Imprimir toda a fila");
     printf("\n 4 - Copiar todos elementos da primeira fila para a segunda");
+    printf("\n 5 - Verificar se existe um valor na fila");
     printf("\n 9 - Finalizar");
     printf("\n\nEscolha uma opcao: ");
     scanf("%d", &escolha);
@@ -145,8 +162,18 @@ void main(){
       imprimir(fila2);
     }
 
-    if(escolha == 4){
+    else if(escolha == 4){
         copiarFila(fila1, fila2);
+    }
+
+    else if(escolha == 5){
+        printf("Digite o valor que deseja procurar na fila: ");
+        scanf("%d", &valor);
+        if(verificarValor(fila1, valor)){
+            printf("O Valor %d foi encontrado dentro da Fila \n", valor);
+        }else{
+            printf("A fila não possui esse valor \n")
+        }
     }
   }
 }
