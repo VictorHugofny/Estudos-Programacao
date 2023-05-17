@@ -14,3 +14,8 @@ int main() {
 
   return 0;
 }
+
+
+//para criar um ponteiro é necessario int *p = &variavel
+// *p acesso o valor do ponteiro
+// p acesso o endereço do ponteiro
