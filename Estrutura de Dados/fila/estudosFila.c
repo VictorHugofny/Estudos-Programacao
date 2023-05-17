@@ -1,5 +1,17 @@
 #include <stdio.h>
 
+//desafios
+//✅ 1: Implementar uma função para verificar se um determinado valor está presente na fila.
+//✅ 2: Adicionar uma função para obter o tamanho atual da fila.
+//✅ 3: Modificar a função de remoção para retornar o valor removido em vez de apenas imprimi-lo.
+//4: Implementar uma função para inverter a ordem dos elementos na fila.
+//5: Adicionar validação para evitar a inserção de valores duplicados na fila.
+//6: Implementar uma função para esvaziar completamente a fila.
+//7: Adicionar suporte para operações de fila circular, em que a inserção após o fim da fila resulta em uma nova inserção no início.
+//8: Modificar a função de impressão para exibir a posição de cada elemento na fila.
+//9: Implementar uma função para mesclar duas filas em uma única fila resultante.
+//10: Adicionar uma função para ordenar os elementos da fila em ordem crescente ou decrescente.
+
 //estrutura do elemento
 typedef struct Elemento{
     int valor;
@@ -80,23 +92,44 @@ void copiarFila(Fila *fila1, Fila *fila2){
     int valorRemovido = 0;
     
     while(!filaVazia(fila1->inicio)){
-        printf("rodou?");
         valorRemovido = removerElemento(fila1);
         inserir(fila2, valorRemovido);
     }
 
-    printf ("Toda pilha foi copiada \n");
+    printf ("\n Toda pilha foi copiada \n");
     imprimir(fila2);
 }
 
 
 //Implementar uma função para verificar se um determinado valor está presente na fila.
-int verificarValor(Fila *fila, valor){
+
+//sem remover elementos da fila
+int verificarValor(Fila *fila, int valor){
+    Elemento *atual = fila->inicio;
+
+    if (!atual) {
+        printf("Fila vazia \n");
+        return;
+    }
+
+    //função recursiva para olhar todos elementos da fila sem remover
+    while (atual) {
+        atual = atual->proximo;
+        if(atual && atual->valor && atual->valor == valor){
+            return 1;
+        }
+    }
+
+    //não encontrou valor
+    return 0;
+}
+
+//removendo elementos da fila;
+int verificarValor2(Fila *fila, int valor){
     int valorAtual = 0;
 
     while(!filaVazia(fila->inicio)){
-        valorAtual = removerElemento(filaVazia);
-        
+        valorAtual = removerElemento(fila);
         //encontrou o valor repetido;
         if(valorAtual == valor){
             return 1;
@@ -107,6 +140,24 @@ int verificarValor(Fila *fila, valor){
     return 0;
 }
 
+//Adicionar uma função para obter o tamanho atual da fila.
+int tamanhoFila(Fila *fila){
+    Elemento *no = fila->inicio;
+    int tamanho = 0;
+
+    if (!no) {
+        printf("Fila vazia \n");
+        return;
+    }
+
+    while (no) {
+        no = no->proximo;
+        tamanho++;
+    }
+
+    //retornando o tamanho
+    return tamanho;
+}
 void main(){
     // Fila fila;
     // criarFila(&fila);
@@ -114,6 +165,7 @@ void main(){
     Fila *fila2 = criarFila();
     int escolha = 0;
     int valor = 0;
+    int valorEscolhido = 0;
     int escolhaFila = 0;
     
     while (escolha != 9) {
@@ -123,6 +175,7 @@ void main(){
     printf("\n 3 - Imprimir toda a fila");
     printf("\n 4 - Copiar todos elementos da primeira fila para a segunda");
     printf("\n 5 - Verificar se existe um valor na fila");
+    printf("\n 6 - Verificar o tamanho da fila");
     printf("\n 9 - Finalizar");
     printf("\n\nEscolha uma opcao: ");
     scanf("%d", &escolha);
@@ -168,12 +221,16 @@ void main(){
 
     else if(escolha == 5){
         printf("Digite o valor que deseja procurar na fila: ");
-        scanf("%d", &valor);
-        if(verificarValor(fila1, valor)){
-            printf("O Valor %d foi encontrado dentro da Fila \n", valor);
+        scanf("%d", &valorEscolhido);
+        if(verificarValor(fila1, valorEscolhido)){
+            printf("\nO Valor %d foi encontrado dentro da Fila \n", valorEscolhido);
         }else{
-            printf("A fila não possui esse valor \n")
+            printf("\nA fila nao possui esse valor \n");
         }
+    }
+
+    else if(escolha == 6){
+        printf("O tamanho da fila eh %d \n", tamanhoFila(fila1));
     }
   }
 }
