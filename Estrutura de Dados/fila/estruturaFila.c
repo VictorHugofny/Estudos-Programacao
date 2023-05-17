@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 //estrutura do elemento
 typedef struct Elemento{
@@ -61,11 +62,16 @@ void *removerElemento(Fila *fila) {
 }
 
 Fila* criarFila(){
-    Fila *fila = (Fila*)malloc(sizeof(fila));
+    Fila *fila = (Fila*)malloc(sizeof(Fila));
     fila->fim = NULL;
     fila->inicio = NULL;
     printf("Pilha criada \n");
     return fila;
+}
+
+//Implementar uma função para verificar se um determinado valor está presente na fila.
+int verificarValor(Fila *fila, valor){
+
 }
 
 // void criarFila(Fila *fila){
