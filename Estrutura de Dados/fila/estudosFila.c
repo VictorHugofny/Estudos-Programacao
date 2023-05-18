@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 //desafios
 //✅ 1: Implementar uma função para verificar se um determinado valor está presente na fila.
@@ -100,9 +101,7 @@ void copiarFila(Fila *fila1, Fila *fila2){
     imprimir(fila2);
 }
 
-
-//Implementar uma função para verificar se um determinado valor está presente na fila.
-
+//Implementar uma função para verificar se um determinado valor está presente na fila
 //sem remover elementos da fila
 int verificarValor(Fila *fila, int valor){
     Elemento *atual = fila->inicio;
@@ -158,6 +157,28 @@ int tamanhoFila(Fila *fila){
     //retornando o tamanho
     return tamanho;
 }
+
+//Crie uma função que insira elementos no inicio da lista.
+void insirirInicio(Fila *fila, int valor){
+    Elemento* no = (Elemento*)malloc(sizeof(Elemento));
+
+    if (!no) {
+        printf("Erro ao alocar memória\n");
+        return;
+    }
+
+    no->valor = valor;
+
+    if(fila->inicio){
+        no->proximo = fila->inicio;
+    }else{
+        no->proximo = NULL;
+        fila->fim = no;
+    }
+
+    fila->inicio = no;
+}
+
 void main(){
     // Fila fila;
     // criarFila(&fila);
@@ -176,6 +197,7 @@ void main(){
     printf("\n 4 - Copiar todos elementos da primeira fila para a segunda");
     printf("\n 5 - Verificar se existe um valor na fila");
     printf("\n 6 - Verificar o tamanho da fila");
+    printf("\n 7 - Insirir elemento no inicio (Fila)");
     printf("\n 9 - Finalizar");
     printf("\n\nEscolha uma opcao: ");
     scanf("%d", &escolha);
@@ -231,6 +253,11 @@ void main(){
 
     else if(escolha == 6){
         printf("O tamanho da fila eh %d \n", tamanhoFila(fila1));
+    }
+    else if(escolha == 7){
+        printf("Digite o valor que deseja entrar na fila ?");
+        scanf("%d", &valor);
+        insirirInicio(fila1, valor);
     }
   }
 }
