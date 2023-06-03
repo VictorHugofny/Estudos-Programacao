@@ -46,6 +46,17 @@ void imprimir(Elemento *e) {
   }
 }
 
+// void inserirFim(Elemento *e) {
+
+//   if (e) {
+//     printf("%d \n", e->valor);
+//     // função recursiva
+//     inserirFim(e->proximo);
+//   } else {
+//     fila->inicio = no;
+//       }
+// }
+
 void imprimirSegundaForma(Elemento *e) {
 
   while (e != NULL) {

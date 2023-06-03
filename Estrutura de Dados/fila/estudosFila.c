@@ -160,6 +160,8 @@ int tamanhoFila(Fila *fila){
 
 //Crie uma função que insira elementos no inicio da lista.
 void insirirInicio(Fila *fila, int valor){
+
+
     Elemento* no = (Elemento*)malloc(sizeof(Elemento));
 
     if (!no) {
@@ -170,13 +172,36 @@ void insirirInicio(Fila *fila, int valor){
     no->valor = valor;
 
     if(fila->inicio){
-        no->proximo = fila->inicio;
+        no->proximo = fila->inicio;  
     }else{
         no->proximo = NULL;
         fila->fim = no;
     }
 
     fila->inicio = no;
+}
+
+void inserirFim(Elemento *elemento, int valor){
+
+  if(elemento->proximo){
+    inserirFim(elemento->proximo , valor);
+  }else{
+    elemento->valor = valor;
+    elemento->proximo = NULL;
+  }
+}
+
+void inserirFimWhile(Fila *fila, int valor){
+    //Elemento* no = (Elemento*)malloc(sizeof(Elemento));
+    Elemento* no = fila->inicio;
+
+    while(no ->proximo){
+        no = no->proximo;
+    }
+
+    no->proximo->valor = valor;
+    //no->proximo->proximo = NULL;
+    fila = no;
 }
 
 void main(){
@@ -258,6 +283,11 @@ void main(){
         printf("Digite o valor que deseja entrar na fila ?");
         scanf("%d", &valor);
         insirirInicio(fila1, valor);
+    }
+    else if(escolha == 8){
+        printf("Digite o valor que deseja entrar na fila ?");
+        scanf("%d", &valor);
+        inserirFimWhile(fila1, valor);
     }
   }
 }

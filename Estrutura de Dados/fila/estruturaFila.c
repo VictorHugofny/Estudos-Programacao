@@ -70,8 +70,18 @@ Fila* criarFila(){
 }
 
 //Implementar uma função para verificar se um determinado valor está presente na fila.
-int verificarValor(Fila *fila, valor){
+// int verificarValor(Fila *fila, valor){
 
+// }
+
+void inserirFim(Elemento *elemento, int valor){
+
+  if(elemento){
+    inserirFim(elemento->proximo , valor);
+  }else{
+    elemento->valor = valor;
+    elemento->proximo = NULL;
+  }
 }
 
 // void criarFila(Fila *fila){
