@@ -89,44 +89,6 @@ Lista* criarLista(){
 }
 
 
-//Implementar uma função para verificar se um determinado valor está presente na lista
-//sem remover elementos da lista
-// int verificarValor(Lista *lista, int valor){
-//     Elemento *atual = lista->inicio;
-
-//     if (!atual) {
-//         printf("Lista vazia \n");
-//         return;
-//     }
-
-//     //função recursiva para olhar todos elementos da lista sem remover
-//     while (atual) {
-//         atual = atual->proximo;
-//         if(atual && atual->valor && atual->valor == valor){
-//             return 1;
-//         }
-//     }
-
-//     //não encontrou valor
-//     return 0;
-// }
-
-//removendo elementos da lista;
-// int verificarValor2(Lista *lista, int valor){
-//     int valorAtual = 0;
-
-//     while(!listaVazia(lista->inicio)){
-//         valorAtual = removerElemento(lista);
-//         //encontrou o valor repetido;
-//         if(valorAtual == valor){
-//             return 1;
-//         }
-//     }
-
-//     //não encontrou valor
-//     return 0;
-// }
-
 //Adicionar uma função para obter o tamanho atual da lista.
 int tamanhoLista(Lista *lista){
     Elemento *no = lista->inicio;
@@ -181,6 +143,18 @@ Elemento* inserirFim(Elemento *fila, int valor) {
         return fila;
     }
 }
+
+int listaVazia(Elemento *e){
+  if(e != NULL){
+    return 0;
+  }else{
+    return 1;
+  }
+}
+
+// Node *getInitList(List *list) { return list->init; }
+
+// Node *getEndList(List *list) { return list->end; }
 
 int main() {
     Lista *lista = criarLista();

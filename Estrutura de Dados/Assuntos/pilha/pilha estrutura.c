@@ -40,6 +40,16 @@ void imprimir(Elemento *e) {
   }
 }
 
+void verificarValor(Elemento *e, int valor) {
+  if (e && e->valor == valor) {
+    printf("Valor existe na pilha");
+  } else if (e) {
+    verificarValor(e->proximo, valor);
+  } else {
+    printf("Não encontrou o valor");
+  }
+}
+
 int main() {
   Controle p;
   p.topo = NULL;
