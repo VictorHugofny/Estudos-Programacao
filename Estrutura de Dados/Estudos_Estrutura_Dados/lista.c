@@ -283,7 +283,7 @@ void inserirMeioPorValor(Lista *lista, int valor) {
     }
 }
 
-void inserirMeioSemPosicao(Lista *lista, int valor) {
+void inserirMeioValor(Lista *lista, int valor) {
     if (listaVazia(lista->inicio)) {
         printf("Lista vazia, inserindo no início\n");
         insirirInicio(lista, valor);
@@ -292,32 +292,25 @@ void inserirMeioSemPosicao(Lista *lista, int valor) {
 
     Elemento* novoElemento = (Elemento*)malloc(sizeof(Elemento));
     novoElemento->valor = valor;
+    novoElemento->proximo = NULL;
 
     Elemento* elementoAnterior = NULL;
     Elemento* elementoAtual = lista->inicio;
 
-    int posicao = 0;
-    int tamanho = tamanhoLista(lista);
-
-    // Encontrar a posição de inserção
-    while (elementoAtual != NULL && posicao < tamanho / 2) {
+    // Percorrer a lista até encontrar o local de inserção
+    while (elementoAtual && elementoAtual->valor < valor) {
         elementoAnterior = elementoAtual;
         elementoAtual = elementoAtual->proximo;
-        posicao++;
     }
 
     if (elementoAnterior == NULL) {
-        // Inserir no início
+        // Inserir no início da lista
         novoElemento->proximo = lista->inicio;
         lista->inicio = novoElemento;
     } else {
+        // Inserir no meio da lista
         novoElemento->proximo = elementoAnterior->proximo;
         elementoAnterior->proximo = novoElemento;
-    }
-
-    if (elementoAtual == NULL) {
-        // Inserir no fim
-        lista->fim = novoElemento;
     }
 }
 
