@@ -30,9 +30,25 @@ Elemento *desempilhar(Controle *p, Elemento *e) {
   }
 }
 
+int desempilhar3(Controle *p) {
+  if (p->topo == NULL) {
+    printf("Pilha vazia\n");
+    return -1;
+  }
+
+  Elemento *no = p->topo;
+  int valor = no->valor;
+  p->topo = no->proximo;
+  no->proximo = NULL;  // Atribuir NULL ao campo proximo
+  free(no);
+
+  return valor;
+}
+
+
+
 Elemento *desempilhar2(Controle *p) {
-  Elemento *no = (Elemento *)malloc(sizeof(Elemento));
-  no = p->topo;
+  Elemento *no = p->topo;
 
   if (no) {
     p->topo = no->proximo;

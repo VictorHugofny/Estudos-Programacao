@@ -55,39 +55,51 @@ int filaVazia(Elemento *e){
     return 1;
   }
 }
-//remover elementos da fila
-int *removerElemento(Fila *fila) {
+
+int removerElemento(Fila *fila) {
   int aux = 0;
-  if(filaVazia(fila->inicio)){
-      printf("Fila vazia (Nao eh possivel remover elementos) \n");
-      return;
+  if (filaVazia(fila->inicio)) {
+    printf("Fila vazia (Nao eh possivel remover elementos) \n");
+    return -1;  // Ou algum valor de erro adequado
   }
 
   printf("Valor removido da fila: %d \n", fila->inicio->valor);
   aux = fila->inicio->valor;
+
+  Elemento *temp = fila->inicio;
   fila->inicio = fila->inicio->proximo;
+  free(temp);  // Liberando a memória do nó removido
 
   return aux;
 }
+
 
 Fila* criarFila(){
     Fila *fila = (Fila*)malloc(sizeof(fila));
     fila->fim = NULL;
     fila->inicio = NULL;
-    printf("Pilha criada \n");
+    printf("Fila criada \n");
     return fila;
 }
 
-void copiarFila(Fila *fila1, Fila *fila2){
-    int valorRemovido = 0;
+// void copiarFila(Fila *fila1, Fila *fila2){
+//     int valorRemovido = 0;
     
-    while(!filaVazia(fila1->inicio)){
-        valorRemovido = removerElemento(fila1);
-        inserir(fila2, valorRemovido);
-    }
+//     while(!filaVazia(fila1->inicio)){
+//         valorRemovido = removerElemento(fila1);
+//         inserir(fila2, valorRemovido);
+//     }
 
-    printf ("\n Toda pilha foi copiada \n");
-    imprimir(fila2);
+//     printf ("\n Toda pilha foi copiada \n");
+//     imprimir(fila2);
+// }
+
+void copiarFila2(Fila *fila1, Fila *fila2) {
+  Elemento *aux = fila1->inicio;
+  while (aux != NULL) {
+    inserir(fila2, aux->valor);
+    aux = aux->proximo;
+  }
 }
 
 //Implementar uma função para verificar se um determinado valor está presente na fila
@@ -102,10 +114,12 @@ int verificarValor(Fila *fila, int valor){
 
     //função recursiva para olhar todos elementos da fila sem remover
     while (atual) {
-        atual = atual->proximo;
+        
         if(atual && atual->valor && atual->valor == valor){
             return 1;
         }
+
+        atual = atual->proximo;
     }
 
     //não encontrou valor
@@ -225,7 +239,7 @@ void main(){
     }
 
     else if(escolha == 4){
-        copiarFila(fila1, fila2);
+        copiarFila2(fila1, fila2);
     }
 
     else if(escolha == 5){

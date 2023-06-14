@@ -42,9 +42,11 @@ void inserirFim(Lista *list, int value) {
         list->inicio = no;
     } else {
         Elemento *auxAtual = list->inicio;
+
         while (auxAtual->proximo != NULL) {
             auxAtual = auxAtual->proximo;
         }
+
         auxAtual->proximo = no;
     }
 }
@@ -63,6 +65,7 @@ void inserirFim(Lista *list, int value) {
 //     }
 // }
 
+//solução melhor
 void inserirInicio(Lista *lista, int valor) {
     Elemento *novoElemento = (Elemento *) malloc(sizeof(Elemento));
     novoElemento->valor = valor;
@@ -119,7 +122,7 @@ void inserirMeio(Lista *lista, int valor) {
     novoElemento->proximo = lista->inicio;
     lista->inicio = novoElemento;
   } else {
-    novoElemento->proximo = elementoAtual;
+    novoElemento->proximo = elementoAnterior->proximo;
     elementoAnterior->proximo = novoElemento;
   }
 }
@@ -271,6 +274,7 @@ void removerMeio(Lista *lista) {
       lista->inicio = elementoAtual->proximo;
   } else {
       elementoAnterior->proximo = elementoAtual->proximo;
+      //elementoAnterior->proximo = elementoAnterior->proximo->proximo;
   }
   printf("Valor removido %d \n", elementoAtual->valor);
   free(elementoAtual);
@@ -301,6 +305,7 @@ void removerMeioPosicao(Lista *lista, int posicao) {
 
         Elemento* elementoRemovido = elementoAnterior->proximo;
         elementoAnterior->proximo = elementoRemovido->proximo;
+        //elementoAnterior->proximo = elementoRemovido->proximo->proximo;
         printf("Valor Removido: %d \n", elementoRemovido->valor);
         free(elementoRemovido);
     }
@@ -326,7 +331,7 @@ void imprimir(Lista *lista) {
 Lista* criarLista(){
     Lista *lista = (Lista*)malloc(sizeof(lista));
     lista->inicio = NULL;
-    printf("Pilha criada \n");
+    printf("Lista criada \n");
     return lista;
 }
 
