@@ -14,7 +14,8 @@ interface DataProps{
 
 async function delayFetch(url: string, time: number){
   await new Promise(resolve => setTimeout(resolve, time))
-  const response = await fetch(url);
+  //revalidate é para o cache durar 2 minutos
+  const response = await fetch(url,{next:{revalidate: 120}});
   return response.json();
 }
 
@@ -22,7 +23,7 @@ async function delayFetch(url: string, time: number){
 async function getData(){
   // const response = await fetch("https://api.github.com/users/victorhugofny/repos");
   // return response.json();
-  const data = await delayFetch("https://api.github.com/users/victorhugofny/repos", 0)
+  const data = await delayFetch("https://api.github.com/users/victorhugofny/repos", 1000)
   return data;
 }
 
