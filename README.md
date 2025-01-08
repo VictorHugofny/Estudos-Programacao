@@ -1,6 +1,6 @@
 # Estudos de Programação
 
-<h4> Meus estudos de programação Web com base em cursos que faço pela Faculdade, Udemy, youtube e outras plataformas </h4>
+<h4> Meus estudos de programação com base em cursos que faço pela Faculdade, Udemy, youtube e outras plataformas </h4>
 
 # Conteudos: 
 
