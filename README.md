@@ -1,10 +1,10 @@
 # Estudos de Programação
 
-<h4> Meus estudos de programação Web com base em cursos que faço pela Udemy, youtube e outras plataformas </h4>
+<h4> Meus estudos de programação Web com base em cursos que faço pela Faculdade, Udemy, youtube e outras plataformas </h4>
 
 # Conteudos: 
 
-<h4>Javascript,Vue,Node, React,HTML,CSS,Bootstrap,Express...</h4>
+<h4>C,Javascript,Vue,Node, React,HTML,CSS,Bootstrap,Express, estrutura de dados...</h4>
 
 <h1 align="center">
     <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/ibm.gif" />
