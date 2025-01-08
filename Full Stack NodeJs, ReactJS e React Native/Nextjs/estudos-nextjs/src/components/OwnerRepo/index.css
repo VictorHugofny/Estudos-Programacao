@@ -1,0 +1,5 @@
+.Projetos{
+    display: flex;
+    padding: 10px;
+    border: 1px solid blue;
+}

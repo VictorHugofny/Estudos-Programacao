@@ -1,95 +1,56 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import {OwnerRepo} from '@/components/OwnerRepo'
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+interface DataProps{
+  id: number;
+  name: string;
+  full_name: string;
+  owner: {
+    login:string;
+    id: number;
+    avatar_url:string;
+    url: string;
+  };
+}
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+async function delayFetch(url: string, time: number){
+  await new Promise(resolve => setTimeout(resolve, time))
+  const response = await fetch(url);
+  return response.json();
+}
+
+//Criando uma requisição de API para simular dados
+async function getData(){
+  // const response = await fetch("https://api.github.com/users/victorhugofny/repos");
+  // return response.json();
+  const data = await delayFetch("https://api.github.com/users/victorhugofny/repos", 0)
+  return data;
+}
+
+//Criando um componentew que roda do lado do servidor
+//trazendo os dados sem a necessidade de um load do lado do usuario
+export default async function Home(){
+  const data: DataProps[] = await getData();
+  
+  return(
+    <div>
+      <h1> pagina Home </h1>
+      <span>Seja bem vindo a pagina home</span>
+
+      <h3>Meus projetos</h3>
+      {data.map((item)=>(
+          <div key={item.id}>
+              <strong>Repositorio: </strong> <a>{item.name}</a>
+              <br/>
+              <OwnerRepo
+              avatar_url = {item.owner.avatar_url}
+              name = {item.owner.login}
+              />
+          </div>
+
+      ))
+      }
     </div>
-  );
+
+  
+  )
 }

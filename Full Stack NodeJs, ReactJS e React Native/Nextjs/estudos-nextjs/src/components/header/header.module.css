@@ -1,0 +1,12 @@
+.header{
+    color: white;
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+}
+
+.header a:hover{
+    color: rgb(83, 83, 235);
+}
