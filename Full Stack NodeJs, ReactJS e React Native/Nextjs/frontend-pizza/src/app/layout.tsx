@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Sujeito Pizzaria",
-  description: "A melhor Pizzaria",
+  description: "A melhor Pizzaria"
 };
 
 export default function RootLayout({
