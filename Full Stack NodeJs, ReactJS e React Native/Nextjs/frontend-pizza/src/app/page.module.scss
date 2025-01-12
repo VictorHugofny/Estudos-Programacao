@@ -42,6 +42,11 @@
   form button:hover{
     transform: scale(1.02);
   }
+
+  h1{
+    color: var(--white);
+    font-family: sans-serif;
+  }
 }
 
 .input{
